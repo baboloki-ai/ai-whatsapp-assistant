@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "26771234567";
+const WHATSAPP_NUMBER = "26771868598";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hi! I'd like to learn more about the AI WhatsApp Assistant for my business."
+  "Hello WhatsApp AI Botswana. I would like to know more about your AI WhatsApp Assistant for my business."
 );
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnjkdplo";
 
 const navLinks = [
   { href: "#features", label: "Features" },
-  { href: "#benefits", label: "Benefits" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#about", label: "About" },
+  { href: "#testimonials", label: "Success Stories" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
@@ -25,8 +26,8 @@ const stats = [
 
 const features = [
   {
-    title: "Smart Auto-Replies",
-    desc: "AI understands customer questions in English and Setswana, and responds naturally—day or night.",
+    title: "AI Customer Support",
+    desc: "Provide instant answers to customer questions any time of the day.",
     icon: (
       <path
         strokeLinecap="round"
@@ -37,7 +38,7 @@ const features = [
   },
   {
     title: "Lead Capture",
-    desc: "Qualify enquiries, collect contact details, and route hot leads straight to your sales team.",
+    desc: "Automatically collect customer details and generate new sales opportunities.",
     icon: (
       <path
         strokeLinecap="round"
@@ -47,8 +48,8 @@ const features = [
     ),
   },
   {
-    title: "Order & Booking Help",
-    desc: "Answer product questions, share menus or catalogues, and confirm appointments automatically.",
+    title: "Appointment Booking",
+    desc: "Allow customers to schedule appointments directly through WhatsApp.",
     icon: (
       <path
         strokeLinecap="round"
@@ -58,30 +59,30 @@ const features = [
     ),
   },
   {
-    title: "Broadcast Campaigns",
-    desc: "Send promotions and updates to opted-in customers—compliant with WhatsApp Business policies.",
+    title: "Product & Order Assistance",
+    desc: "Help customers browse products, place orders, and receive updates.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
       />
     ),
   },
   {
-    title: "Human Handoff",
-    desc: "Seamlessly transfer complex chats to your team when a personal touch is needed.",
+    title: "Frequently Asked Questions",
+    desc: "Answer common questions automatically without human intervention.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
       />
     ),
   },
   {
-    title: "Analytics Dashboard",
-    desc: "Track response times, conversation volume, and conversion metrics in one place.",
+    title: "Business Analytics",
+    desc: "Track enquiries, customer interactions, and business performance.",
     icon: (
       <path
         strokeLinecap="round"
@@ -92,49 +93,22 @@ const features = [
   },
 ];
 
-const benefits = [
+const aboutHighlights = [
   {
-    title: "Built for Botswana",
-    desc: "Pricing in Pula, local payment options, and support that understands how Batswana businesses sell and serve.",
+    title: "Save Time",
+    desc: "Automate repetitive conversations so your team can focus on what matters most.",
   },
   {
-    title: "No App Required",
-    desc: "Your customers already use WhatsApp. Meet them where they are—no downloads, no friction.",
+    title: "Better Service",
+    desc: "Improve customer service with instant, intelligent replies around the clock.",
   },
   {
-    title: "Setup in Days, Not Months",
-    desc: "We configure your assistant, train it on your FAQs, and go live quickly so you start seeing results fast.",
+    title: "More Leads",
+    desc: "Generate new sales opportunities by capturing every WhatsApp enquiry.",
   },
   {
-    title: "Enterprise-Grade Security",
-    desc: "Encrypted conversations, role-based access, and data handling aligned with best practices.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "We went from missing messages after hours to booking appointments 24/7. Our salon in Gaborone has never been busier.",
-    name: "Keabetswe M.",
-    role: "Owner, Glow Beauty Studio",
-    location: "Gaborone",
-    initials: "KM",
-  },
-  {
-    quote:
-      "The AI handles 80% of product questions. My team only steps in for large orders. Game changer for our hardware shop.",
-    name: "Thabo K.",
-    role: "Director, BuildRight Supplies",
-    location: "Francistown",
-    initials: "TK",
-  },
-  {
-    quote:
-      "Professional, fast, and our customers love chatting on WhatsApp. Worth every Pula—we saw 3x more leads in month one.",
-    name: "Amantle S.",
-    role: "Founder, FreshBox Delivery",
-    location: "Maun",
-    initials: "AS",
+    title: "Increase Sales",
+    desc: "Grow revenue through smart WhatsApp automation built for your business.",
   },
 ];
 
@@ -143,45 +117,48 @@ const pricingPlans = [
     name: "Starter",
     price: "499",
     period: "/month",
-    desc: "Perfect for solo entrepreneurs and small shops.",
+    desc: "",
     features: [
-      "Up to 500 conversations/mo",
-      "AI auto-replies & FAQs",
-      "Basic lead capture",
-      "Email support",
+      "AI Replies",
+      "FAQ Automation",
+      "WhatsApp Support",
+      "Business Hours Setup",
     ],
-    cta: "Start Free Trial",
+    cta: "Get Started",
     highlighted: false,
+    isCustom: false,
   },
   {
-    name: "Growth",
+    name: "Business",
     price: "999",
     period: "/month",
-    desc: "For growing teams that need more volume and control.",
+    desc: "",
     features: [
-      "Up to 2,000 conversations/mo",
-      "Advanced AI + custom training",
-      "CRM integrations",
-      "Priority support",
-      "Analytics dashboard",
+      "Everything in Starter",
+      "Lead Capture",
+      "Appointment Booking",
+      "Product Catalogue",
+      "Priority Support",
     ],
     cta: "Get Started",
     highlighted: true,
+    isCustom: false,
   },
   {
     name: "Enterprise",
-    price: "Custom",
+    price: "Custom Pricing",
     period: "",
-    desc: "Tailored solutions for retailers, clinics, and franchises.",
+    desc: "",
     features: [
-      "Unlimited conversations",
-      "Dedicated account manager",
-      "Multi-location setup",
-      "API & custom workflows",
-      "SLA guarantee",
+      "Multiple WhatsApp Numbers",
+      "CRM Integration",
+      "API Integration",
+      "Dedicated Support",
+      "Custom AI Training",
     ],
     cta: "Contact Sales",
     highlighted: false,
+    isCustom: true,
   },
 ];
 
@@ -248,7 +225,7 @@ const inputClass =
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [formStatus, setFormStatus] = useState<"idle" | "success">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [formData, setFormData] = useState({
     name: "",
     business: "",
@@ -257,11 +234,23 @@ export default function Home() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus("success");
-    setFormData({ name: "", business: "", phone: "", email: "", message: "" });
-    setTimeout(() => setFormStatus("idle"), 5000);
+    setFormStatus("submitting");
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      body: new FormData(e.currentTarget),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      setFormStatus("success");
+      setFormData({ name: "", business: "", phone: "", email: "", message: "" });
+      setTimeout(() => setFormStatus("idle"), 5000);
+    } else {
+      setFormStatus("idle");
+    }
   };
 
   return (
@@ -288,7 +277,7 @@ export default function Home() {
               <WhatsAppIcon className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold tracking-tight text-gray-900">
-              AI WhatsApp<span className="text-[#128C7E]">Assistant</span>
+              WhatsApp AI<span className="text-[#128C7E]">Botswana</span>
             </span>
           </a>
 
@@ -365,34 +354,32 @@ export default function Home() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#25D366]" />
                 </span>
-                Trusted by Botswana businesses
+                Trusted by Botswana Businesses
               </span>
-              <h1 className="mt-8 text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                Grow your business with{" "}
+              <h1 className="mt-8 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                Transform Your Business with{" "}
                 <span className="bg-gradient-to-r from-[#25D366] via-[#128C7E] to-[#075E54] bg-clip-text text-transparent">
-                  AI-powered WhatsApp
+                  AI-Powered WhatsApp Automation
                 </span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">
-                Reply instantly, capture more leads, and deliver 24/7 customer service—all on the app
-                your customers already use. Built for shops, clinics, salons, and enterprises across
-                Botswana.
+              <p className="mt-6 max-w-xl text-lg leading-relaxed tracking-normal text-gray-600">
+                Serve customers 24/7, capture more leads, automate repetitive conversations, and grow
+                your business with an intelligent WhatsApp assistant built for Botswana.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-emerald-500/35 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/50"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-emerald-500/35 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/50 active:scale-[0.98]"
                 >
-                  <WhatsAppIcon className="h-5 w-5" />
-                  Chat on WhatsApp
+                  Get Started
                 </a>
                 <a
-                  href="#pricing"
-                  className="inline-flex items-center rounded-full border-2 border-[#128C7E]/25 bg-white/90 px-8 py-4 text-base font-semibold text-[#128C7E] shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#128C7E] hover:bg-white hover:shadow-lg"
+                  href="#contact"
+                  className="inline-flex items-center rounded-full border-2 border-[#128C7E]/25 bg-white/90 px-8 py-4 text-base font-semibold text-[#128C7E] shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#128C7E] hover:bg-white hover:shadow-lg active:scale-[0.98]"
                 >
-                  View Pricing
+                  Book a Free Demo
                 </a>
               </div>
               <div className="mt-12 flex flex-wrap items-center gap-6 border-t border-emerald-100/80 pt-8">
@@ -463,20 +450,19 @@ export default function Home() {
         <section id="features" className="px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="text-center">
-              <SectionBadge>Features</SectionBadge>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Everything you need on WhatsApp
+              <SectionBadge>Services</SectionBadge>
+              <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Powerful WhatsApp automation for your business
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                Powerful automation tools designed for how Botswana businesses actually sell and
-                support customers.
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
+                Everything you need to automate customer conversations and grow with confidence.
               </p>
             </div>
             <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {features.map((feature) => (
                 <article
                   key={feature.title}
-                  className="group rounded-2xl border border-white/70 bg-white/85 p-7 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-[#25D366]/40 hover:shadow-xl hover:shadow-emerald-500/15"
+                  className="group rounded-2xl border border-white/70 bg-white/85 p-7 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-[#25D366]/40 hover:shadow-xl hover:shadow-emerald-500/15 active:scale-[0.99]"
                 >
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-100 text-[#128C7E] shadow-inner transition-all duration-300 group-hover:scale-110 group-hover:from-[#25D366]/20 group-hover:to-[#128C7E]/20">
                     <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -491,35 +477,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Benefits */}
-        <section id="benefits" className="px-4 py-24 sm:px-6 lg:px-8">
+        {/* About Us */}
+        <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="overflow-hidden rounded-3xl border border-white/30 bg-gradient-to-br from-[#128C7E] via-[#0d7a6e] to-[#075E54] p-8 shadow-2xl shadow-emerald-900/25 sm:p-12 lg:p-16">
               <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <SectionBadge>Why us</SectionBadge>
-                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    Why Botswana businesses choose us
+                  <SectionBadge>About Us</SectionBadge>
+                  <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    About WhatsApp AI Botswana
                   </h2>
-                  <p className="mt-4 text-lg leading-relaxed text-emerald-100">
-                    From Gaborone to Maun, we help local brands turn WhatsApp into their
-                    highest-converting sales channel—without hiring a full-time support team.
-                  </p>
+                  <div className="mt-6 space-y-4 text-base leading-relaxed text-emerald-100 sm:text-lg">
+                    <p>
+                      WhatsApp AI Botswana helps businesses automate customer conversations using
+                      artificial intelligence.
+                    </p>
+                    <p>
+                      Our mission is to help businesses save time, improve customer service, generate
+                      more leads, and increase sales through smart WhatsApp automation.
+                    </p>
+                    <p>
+                      Whether you&apos;re a retailer, clinic, restaurant, lodge, school, or service
+                      provider, we build AI assistants that work for your business 24 hours a day.
+                    </p>
+                  </div>
                   <a
                     href="#contact"
-                    className="mt-8 inline-flex rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#075E54] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                    className="mt-8 inline-flex rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#075E54] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98]"
                   >
                     Book a Free Demo
                   </a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  {benefits.map((benefit) => (
+                  {aboutHighlights.map((item) => (
                     <div
-                      key={benefit.title}
-                      className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/20"
+                      key={item.title}
+                      className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg active:scale-[0.99]"
                     >
-                      <h3 className="font-bold text-white">{benefit.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-emerald-100">{benefit.desc}</p>
+                      <h3 className="font-bold text-white">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-emerald-100">{item.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -528,45 +524,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Success Stories */}
         <section id="testimonials" className="px-4 py-24 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl">
             <div className="text-center">
-              <SectionBadge>Testimonials</SectionBadge>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Loved by local businesses
+              <SectionBadge>Success Stories</SectionBadge>
+              <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Building Success Stories
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Real results from shops and services across Botswana.
+              <p className="mt-6 text-lg leading-relaxed text-gray-600">
+                We&apos;re currently partnering with our first Botswana businesses.
+              </p>
+              <p className="mt-3 text-lg leading-relaxed text-gray-600">
+                Your business could be the next success story featured here.
               </p>
             </div>
-            <div className="mt-16 grid gap-8 md:grid-cols-3">
-              {testimonials.map((t) => (
-                <blockquote
-                  key={t.name}
-                  className="flex flex-col rounded-2xl border border-white/70 bg-white/95 p-8 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/15"
-                >
-                  <div className="mb-4 flex gap-1 text-[#25D366]" aria-hidden>
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="h-5 w-5 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="flex-1 leading-relaxed text-gray-700">&ldquo;{t.quote}&rdquo;</p>
-                  <footer className="mt-6 flex items-center gap-4 border-t border-gray-100 pt-5">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] text-sm font-bold text-white shadow-md">
-                      {t.initials}
-                    </span>
-                    <div>
-                      <p className="font-semibold text-gray-900">{t.name}</p>
-                      <p className="text-sm text-gray-500">
-                        {t.role} · {t.location}
-                      </p>
-                    </div>
-                  </footer>
-                </blockquote>
-              ))}
+            <div className="mt-12 rounded-2xl border border-white/70 bg-white/95 p-10 text-center shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/15 sm:p-12">
+              <a
+                href="#contact"
+                className="inline-flex rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] px-8 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
+              >
+                Book a Free Demo
+              </a>
             </div>
           </div>
         </section>
@@ -599,14 +578,15 @@ export default function Home() {
                     </span>
                   )}
                   <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
-                  <p className="mt-2 text-sm text-gray-500">{plan.desc}</p>
                   <p className="mt-6">
-                    {plan.price === "Custom" ? (
-                      <span className="text-4xl font-extrabold text-gray-900">Custom</span>
+                    {plan.isCustom ? (
+                      <span className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        {plan.price}
+                      </span>
                     ) : (
                       <>
                         <span className="text-sm font-semibold text-gray-500">P</span>
-                        <span className="text-4xl font-extrabold text-gray-900">{plan.price}</span>
+                        <span className="text-4xl font-extrabold tracking-tight text-gray-900">{plan.price}</span>
                         <span className="text-gray-500">{plan.period}</span>
                       </>
                     )}
@@ -628,10 +608,10 @@ export default function Home() {
                     ))}
                   </ul>
                   <a
-                    href={plan.name === "Enterprise" ? "#contact" : WHATSAPP_URL}
-                    target={plan.name === "Enterprise" ? undefined : "_blank"}
-                    rel={plan.name === "Enterprise" ? undefined : "noopener noreferrer"}
-                    className={`mt-8 block rounded-full py-3.5 text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
+                    href={plan.isCustom ? "#contact" : WHATSAPP_URL}
+                    target={plan.isCustom ? undefined : "_blank"}
+                    rel={plan.isCustom ? undefined : "noopener noreferrer"}
+                    className={`mt-8 block rounded-full py-3.5 text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] ${
                       plan.highlighted
                         ? "bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white shadow-md hover:shadow-lg"
                         : "border-2 border-[#128C7E]/30 text-[#128C7E] hover:border-[#128C7E] hover:bg-emerald-50"
@@ -697,17 +677,25 @@ export default function Home() {
                   Contact us
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                  Tell us about your business and we&apos;ll show you how AI WhatsApp Assistant can
+                  Tell us about your business and we&apos;ll show you how WhatsApp AI Botswana can
                   help you grow. We typically respond within one business day.
                 </p>
                 <div className="mt-10 space-y-5">
                   <p className="flex items-center gap-4 text-gray-700">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-[#128C7E]">
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </span>
+                    +267 71868598
+                  </p>
+                  <p className="flex items-center gap-4 text-gray-700">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-[#128C7E]">
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </span>
-                    hello@aiwhatsappassistant.co.bw
+                    mothofelab@gmail.com
                   </p>
                   <p className="flex items-center gap-4 text-gray-700">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-[#128C7E]">
@@ -731,12 +719,14 @@ export default function Home() {
               </div>
 
               <form
+                action={FORMSPREE_ENDPOINT}
+                method="POST"
                 onSubmit={handleSubmit}
                 className="rounded-2xl border border-white/70 bg-white/95 p-8 shadow-xl backdrop-blur sm:p-10"
               >
                 {formStatus === "success" && (
                   <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
-                    Thank you! We&apos;ve received your message and will be in touch soon.
+                    Thank you! We have received your message and will contact you soon.
                   </div>
                 )}
                 <div className="space-y-5">
@@ -820,7 +810,8 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="mt-7 w-full rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] py-4 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-500/45"
+                  disabled={formStatus === "submitting"}
+                  className="mt-7 w-full rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] py-4 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-500/45 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   Send Message
                 </button>
@@ -840,28 +831,20 @@ export default function Home() {
                 backgroundSize: "24px 24px",
               }}
             />
-            <h2 className="relative text-3xl font-bold text-white sm:text-4xl">
-              Ready to transform your WhatsApp?
+            <h2 className="relative text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Ready to Automate Your Business?
             </h2>
-            <p className="relative mx-auto mt-4 max-w-2xl text-lg text-emerald-100">
-              Join Botswana businesses already capturing more leads with AI. Start your free trial
-              today—no credit card required.
+            <p className="relative mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-emerald-100">
+              Let AI handle your customer conversations while you focus on growing your business.
             </p>
             <div className="relative mt-10 flex flex-wrap justify-center gap-4">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-[#075E54] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-[#075E54] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-[0.98]"
               >
-                <WhatsAppIcon className="h-5 w-5 text-[#25D366]" />
-                Start on WhatsApp
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:border-white hover:bg-white/15"
-              >
-                Contact Sales
+                Get Started Today
               </a>
             </div>
           </div>
@@ -871,50 +854,47 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-emerald-100/80 bg-white/85 px-4 py-14 backdrop-blur sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 md:grid-cols-4">
-            <div className="md:col-span-2">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <div className="lg:col-span-2">
               <a href="#" className="flex items-center gap-2.5">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-md">
                   <WhatsAppIcon className="h-5 w-5" />
                 </span>
-                <span className="text-lg font-bold text-gray-900">AI WhatsApp Assistant</span>
+                <span className="text-lg font-bold text-gray-900">WhatsApp AI Botswana</span>
               </a>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-600">
-                AI-powered WhatsApp automation for Botswana businesses. Reply faster, capture more
-                leads, and grow with 24/7 intelligent support.
+                Automating Business Conversations.
               </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900">Product</h4>
-              <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
-                <li><a href="#features" className="transition-colors hover:text-[#128C7E]">Features</a></li>
-                <li><a href="#pricing" className="transition-colors hover:text-[#128C7E]">Pricing</a></li>
-                <li><a href="#faq" className="transition-colors hover:text-[#128C7E]">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900">Company</h4>
-              <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
-                <li><a href="#contact" className="transition-colors hover:text-[#128C7E]">Contact</a></li>
-                <li><a href="#testimonials" className="transition-colors hover:text-[#128C7E]">Testimonials</a></li>
+              <ul className="mt-5 space-y-2 text-sm text-gray-600">
+                <li>📍 Gaborone, Botswana</li>
                 <li>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-[#128C7E]"
-                  >
-                    WhatsApp
+                  📞{" "}
+                  <a href="tel:+26771868598" className="transition-colors hover:text-[#128C7E]">
+                    +267 71868598
+                  </a>
+                </li>
+                <li>
+                  ✉️{" "}
+                  <a href="mailto:mothofelab@gmail.com" className="transition-colors hover:text-[#128C7E]">
+                    mothofelab@gmail.com
                   </a>
                 </li>
               </ul>
             </div>
+            <div>
+              <h4 className="font-semibold text-gray-900">Quick Links</h4>
+              <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
+                <li><a href="#features" className="transition-colors hover:text-[#128C7E]">Services</a></li>
+                <li><a href="#pricing" className="transition-colors hover:text-[#128C7E]">Pricing</a></li>
+                <li><a href="#about" className="transition-colors hover:text-[#128C7E]">About</a></li>
+                <li><a href="#contact" className="transition-colors hover:text-[#128C7E]">Contact</a></li>
+              </ul>
+            </div>
           </div>
-          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 sm:flex-row">
+          <div className="mt-12 border-t border-gray-100 pt-8 text-center">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} AI WhatsApp Assistant. All rights reserved.
+              © 2026 WhatsApp AI Botswana. All Rights Reserved.
             </p>
-            <p className="text-sm font-medium text-[#128C7E]">Made for Botswana 🇧🇼</p>
           </div>
         </div>
       </footer>

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI WhatsApp Assistant | WhatsApp Automation for Botswana Businesses",
+  title: "WhatsApp AI Botswana | AI-Powered WhatsApp Automation",
   description:
-    "Reply faster, capture more leads, and grow your Botswana business with 24/7 AI-powered WhatsApp automation.",
+    "Serve customers 24/7, capture more leads, and grow your Botswana business with intelligent WhatsApp automation.",
 };
 
 export default function RootLayout({
